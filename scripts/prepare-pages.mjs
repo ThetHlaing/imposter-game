@@ -8,6 +8,7 @@ const publicDir = join(root, 'public');
 const indexPath = join(root, 'index.html');
 const swPath = join(publicDir, 'sw.js');
 const packageJsonPath = join(root, 'package.json');
+const customDomain = process.env.GH_PAGES_CNAME?.trim() || '';
 
 function normalizeBasePath(input) {
   if (!input || input === '/') {
@@ -22,6 +23,10 @@ function normalizeBasePath(input) {
 }
 
 function getBasePath() {
+  if (customDomain) {
+    return '/';
+  }
+
   if (process.env.GH_PAGES_BASE_PATH) {
     return normalizeBasePath(process.env.GH_PAGES_BASE_PATH);
   }
@@ -137,6 +142,10 @@ const rewrittenFiles = rewriteDeployFiles(basePath);
 // - Disable Jekyll processing to prevent underscore path issues.
 writeFileSync(join(outDir, '.nojekyll'), '');
 
+if (customDomain) {
+  writeFileSync(join(outDir, 'CNAME'), `${customDomain}\n`);
+}
+
 if (existsSync(swPath)) {
   const sw = readFileSync(swPath, 'utf8');
 
@@ -147,4 +156,6 @@ if (existsSync(swPath)) {
   writeFileSync(join(outDir, 'sw.js'), `${rewritten}${stamp}`);
 }
 
-console.log(`Prepared GitHub Pages artifact at ${outDir} with base path: ${basePath} (rewritten files: ${rewrittenFiles})`);
+console.log(
+  `Prepared GitHub Pages artifact at ${outDir} with base path: ${basePath} (rewritten files: ${rewrittenFiles})${customDomain ? ` and CNAME: ${customDomain}` : ''}`
+);

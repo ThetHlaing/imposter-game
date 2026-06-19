@@ -37,6 +37,16 @@ npm run pages:prepare
 npm start
 ```
 
+### Custom domain
+
+This project is configured to publish with `CNAME` set to `imposter.thethlaing.info`.
+
+DNS setup:
+
+1. Create a `CNAME` record for `imposter` pointing to `thethlaing.github.io`.
+2. In GitHub repo settings -> Pages -> Custom domain, enter `imposter.thethlaing.info`.
+3. Enable `Enforce HTTPS` after DNS is verified.
+
 Note: this is a prebuilt production bundle that uses root-absolute app paths. For a project site URL like `https://<user>.github.io/<repo>/`, in-app routing and asset paths may need a re-build with a configured basename. It works best when published at domain root (for example, `<user>.github.io`).
 
 ## Refresh option images
