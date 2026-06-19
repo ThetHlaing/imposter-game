@@ -1,0 +1,14 @@
+{
+  "name": "imposter-game",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "pages:prepare": "node scripts/prepare-pages.mjs",
+    "images:source": "node scripts/source-option-images.mjs",
+    "images:source:deep": "node scripts/source-option-images.mjs --deep",
+    "test": "node --test test/*.test.mjs"
+  }
+}

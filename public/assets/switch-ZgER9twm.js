@@ -1,0 +1,4 @@
+import{u as f,j as r,o as p}from"./index-DdOQBGbF.js";function b({checked:t,onChange:e,onLabel:s="On",offLabel:n="Off",disabled:a=!1,className:o="",ariaLabel:i="Toggle Switch"}){const l=f.getState().play,u=()=>{a||(l("click",.5,!1),e(!t))};return r.jsxs("button",{type:"button",role:"switch","aria-checked":t,"aria-label":i,onClick:u,disabled:a,className:p(`w-18 h-10 bg-netural-900 border border-white rounded-3xl relative p-1 flex shrink-0 items-center cursor-pointer transition-colors duration-300 
+                ${t?"justify-start bg-primary-400 ":"justify-end"}
+                ${o}`),children:[r.jsx("span",{className:`absolute left-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-amber-100 transition-transform ease-in-out duration-300
+                    ${t?"translate-x-7":"translate-x-0"}`}),r.jsxs("span",{className:"text-base px-0.5",children:["  ",t?s:n," "]})]})}export{b as S};
