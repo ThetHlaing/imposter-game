@@ -22,7 +22,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     env:
-      GH_PAGES_CNAME: imposter.thethlaing.info
+      GH_PAGES_CNAME: impostergame.thethlaing.info
       GH_PAGES_BASE_PATH: /
 
     steps:
